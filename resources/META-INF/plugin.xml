@@ -1,0 +1,46 @@
+<idea-plugin version="2">
+    <id>net.scrumplex.fxmlhelper</id>
+    <name>FXMLHelper</name>
+    <version>1.0</version>
+    <vendor email="contact@scrumplex.net" url="https://scrumplex.net">scrumplex.net</vendor>
+
+    <description><![CDATA[
+      Adds handy tools to your JavaFX project.
+    ]]></description>
+
+    <change-notes><![CDATA[
+  Initial release
+    ]]>
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="145.0"/>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <group id="groupFXMLHelper" class="net.scrumplex.fxmlhelper.FXMLHelperGroup" text="FXML Helper" popup="true">
+            <group id="groupControllerGenerator" class="net.scrumplex.fxmlhelper.ControllerGeneratorGroup" text="Generate a Controller" popup="true">
+                <action id="groupGenerateControllerPublic" class="net.scrumplex.fxmlhelper.actions.PublicControllerGeneratorAction"
+                        text="Public access level..."
+                        description="Generates a controller class for the specified FXML file, with public fields">
+                </action>
+                <action id="groupGenerateControllerPrivate" class="net.scrumplex.fxmlhelper.actions.PrivateControllerGeneratorAction"
+                        text="Private access level..."
+                        description="Generates a controller class for the specified FXML file, with private fields">
+                </action>
+            </group>
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
+        </group>
+    </actions>
+
+</idea-plugin>
